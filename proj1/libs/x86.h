@@ -3,10 +3,10 @@
 
 #include <types.h>
 
-#define barrier() _asm_ _volatile_("" :::"memory")
+#define barrier() __asm__ __volatile__("" :::"memory")
 
-static inline uint8_t inb(uint16_t port) _attribute_((always_inline));
-static inline void outb(uint16_t port,uint8_t data) _attribute_((always_inline));
+static inline uint8_t inb(uint16_t port) __attribute__((always_inline));
+static inline void outb(uint16_t port,uint8_t data) __attribute__((always_inline));
 
 static inline uint8_t
 inb(uint16_t port)

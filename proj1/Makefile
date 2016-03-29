@@ -146,7 +146,7 @@ qemu: $(UCOREIMG)
 qemu-nox: $(UCOREIMG)
 	$(V)$(QEMU) -serial mon:stdio -hda $< -nographic
 
-TERMINAL := gnome-terminal
+TERMINAL := zsh
 
 debug: $(UCOREIMG)
 	$(V)$(QEMU) -S -s -parallel stdio -hda $< -serial null &

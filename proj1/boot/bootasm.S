@@ -60,8 +60,8 @@ protcseg:
 	movw %ax,%ds
 	movw %ax,%es
 	movw %ax,%fs
-	movw %ax,gs
-	movw %ax,ss
+	movw %ax,%gs
+	movw %ax,%ss
 
 	#设置栈指针，然后call c代码。栈段是从0--start(0x7c00)
 	#因为代码是从低到搞运行的，所以0--7c00就是空着的，正好用作bootloader的栈
@@ -69,7 +69,7 @@ protcseg:
 	movl $start,%esp
 	call bootmain
 
-	#if bootmain returns(it shouldn't),loop
+	# If bootmain returns(it shouldn't),loop
 spin:
 	jmp spin
 
