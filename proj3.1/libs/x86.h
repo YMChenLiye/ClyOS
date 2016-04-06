@@ -75,7 +75,7 @@ static inline void *__memcpy(void *dst,const void *src,size_t n) __attribute__((
 #ifndef __HAVE_ARCH_STRCMP
 #define __HAVE_ARCH_STRCMP
 static inline int
-__strcmp(cosnt char *s1,const char *s2){
+__strcmp(const char *s1,const char *s2){
 	int d0,d1,ret;
 	asm volatile(
 			"1: lodsb;"

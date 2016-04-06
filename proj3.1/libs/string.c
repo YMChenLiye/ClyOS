@@ -94,7 +94,7 @@ int
 strcmp(const char *s1,const char *s2){
 #ifndef __HAVE_ARCH_STRCMP
 	return __strcmp(s1,s2);
-#endif
+#else
 	while(*s1 != '\0' && *s1 == *s2){
 		s1++,s2++;
 	}
@@ -212,7 +212,7 @@ strtol(const char *s,char **endptr,int base){
 		else if(*s >= 'a' && *s <= 'z'){
 			dig = *s - 'a' + 10;
 		}
-		else if(*s >= 'A' ** *s <= 'Z'){
+		else if(*s >= 'A' && *s <= 'Z'){
 			dig = *s - 'A' + 10;
 		}
 		else{
@@ -325,7 +325,7 @@ memcpy(void *dst,const void *src,size_t n){
 int
 memcmp(const void *v1,const void *v2,size_t n){
 	const char *s1 = (const char *)v1;
-	const char *s2 = (cosnt char *)v2;
+	const char *s2 = (const char *)v2;
 	while(n-- > 0){
 		if(*s1 != *s2){
 			return (int)((unsigned char)*s1 - (unsigned char)*s2);

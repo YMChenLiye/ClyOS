@@ -131,7 +131,7 @@ debuginfo_eip(uintptr_t addr,struct eipdebuginfo *info){
 	//为了源文件搜索整个stabs的集合(type N_SO)
 	int lfile = 0,rfile = (stab_end - stabs) - 1;
 	stab_binsearch(stabs,&lfile,&rfile,N_SO,addr);
-	if(lfile = 0)
+	if(lfile == 0)
 		return -1;
 
 	// Search within that file's stabs for the function definition

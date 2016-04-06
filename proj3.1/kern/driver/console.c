@@ -2,6 +2,7 @@
 #include <x86.h>
 #include <stdio.h>
 #include <string.h>
+#include <kbdreg.h>
 
 //由于PC的历史原因产生的愚蠢的I/O延迟需要
 static void
@@ -55,7 +56,7 @@ static uint16_t addr_6845;
 
 static void
 cga_init(void){
-	volatile uint16_t *cp = (uint16_t)CGA_BUF;
+	volatile uint16_t *cp = (uint16_t *)CGA_BUF;
 	uint16_t was = *cp;
 	*cp = (uint16_t)0xA55A;
 	if(*cp != 0xA55A){
@@ -388,6 +389,7 @@ void
 cons_init(void){
 	cga_init();
 	serial_init();
+	kbd_init();
 	if(!serial_exists){
 		cprintf("serial port does not exist!!\n");
 	}

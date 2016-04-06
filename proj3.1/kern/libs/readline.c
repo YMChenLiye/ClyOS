@@ -24,7 +24,7 @@ readline(const char *prompt){
 	while(1){
 		c = getchar();
 		if(c < 0){
-			return NULL:
+			return NULL;
 		}
 		else if(c >= ' ' && i < BUFSIZE -1){
 			cputchar(c);
